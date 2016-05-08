@@ -1,0 +1,11 @@
+extends ../../node_modules/jade-bootstrap/_bootstrap
+
+block body
+    +navbar("Marketplace", "dropdown_menu")
+        +nav_item("/", "active") Home
+        +nav_item("/advanced") Advanced Search
+        +nav_item("account") Account
+    .container
+        h1 Single item view
+        .container
+            p This will be the page to view an item with index 1
