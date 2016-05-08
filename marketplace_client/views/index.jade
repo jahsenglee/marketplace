@@ -1,0 +1,11 @@
+extends ../node_modules/jade-bootstrap/_bootstrap
+
+block body
+	+navbar("Marketplace", "dropdown_menu")
+		+nav_item("/", "active") Home
+		+nav_item("/advanced") Advanced Search
+		+nav_item("account") Account
+	.container
+		h1 Marketplace Seed
+		.container
+		p Assume person has logged in for now, need to change later
