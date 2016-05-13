@@ -11,6 +11,10 @@ router.get('/advanced', function(req, res) {
   res.render('search/advancedSearch')
 });
 
+router.get('/browse', function(req, res) {
+  res.render('browse')
+});
+
 router.get('/singleItem', function(req, res) {
   res.render('search/singleItem?displayItem=1')
 });
@@ -27,6 +31,10 @@ router.get('/login', function(req, res) {
 
 router.get('/upload', function(req, res) {
   res.render('account/upload')
+});
+
+router.get('/watchlist', function(req, res) {
+  res.render('watchlist')
 });
 
 module.exports = router;

@@ -1,11 +1,23 @@
 extends ../../node_modules/jade-bootstrap/_bootstrap
-
+extends ../layout.jade
+append styles
+	link(rel='stylesheet', href='/stylesheets/style.css')
+	
 block body
-    +navbar("Marketplace", "dropdown_menu")
-        +nav_item("/", "active") Home
-        +nav_item("/advanced") Advanced Search
-        +nav_item("account") Account
-    .container
-        h1 Account
-        .container
-            p This will be the account page
+	+navbar-fixed("Marketplace", "dropdown_menu")
+		+nav_item("/") Home
+		+nav_item("/browse") Buy
+		+nav_item("/upload") Sell
+		form.navbar-form.navbar-left
+			form.form-group(action="/search",method="get")
+				+input-simple("text","mysearch", "Search","")
+				button.btn("submit") Search
+		form.navbar-form.navbar-right
+			+a-btn-success("/login") Login
+		ul.nav.navbar-nav.navbar-right
+			+nav_item("/account","active") Account
+			+nav_item("/watchlist") Watchlist
+	block content
+		.inside
+			h1 Account
+			p This will be the account page

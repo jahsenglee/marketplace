@@ -1,11 +1,12 @@
 extends ../node_modules/jade-bootstrap/_bootstrap
+extends ../views/layout.jade
+append styles
+	link(rel='stylesheet', href='/stylesheets/style.css')
 
-block body
-	+navbar("Marketplace", "dropdown_menu")
-		+nav_item("/", "active") Home
-		+nav_item("/advanced") Advanced Search
-		+nav_item("account") Account
-	.container
+block content
+	.inside
 		h1 Marketplace Seed
-		.container
 		p Assume person has logged in for now, need to change later
+		+a-btn-primary("/browse") Buy
+		+a-btn-success("/upload") Sell
+		+a-btn-warning("/watchlist") Watchlist

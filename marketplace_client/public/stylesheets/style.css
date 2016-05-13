@@ -1,8 +1,26 @@
 body {
-  padding: 50px;
+  //padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.navbar {
+	background-color:#273d63;
+}
+
+.navbar .nav li a {
+	color: white;
+}
+
+/*text within header square thing. cteating the square around 
+that changes size with amount of info within. can have search results
+within and will change size to fit and look nice.*/
+.inside{
+	text-align:center;
+	padding: 100px 0px 100px 0px;
+	background-color: #EEEEEE;
+}
+
+.btn{
+	width:85px;
+	margin-left: 15px;
 }

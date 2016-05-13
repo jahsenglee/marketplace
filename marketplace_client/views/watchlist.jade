@@ -1,20 +1,23 @@
-extends ../../node_modules/jade-bootstrap/_bootstrap
-extends ../layout.jade
+extends ../node_modules/jade-bootstrap/_bootstrap
+extends ../views/layout.jade
 append styles
 	link(rel='stylesheet', href='/stylesheets/style.css')
+
 block body
 	+navbar-fixed("Marketplace", "dropdown_menu")
-		+nav_item("/") Browse
-		+nav_item("/advanced","active") Buy
-		+nav_item("/account") Sell
+		+nav_item("/") Home
+		+nav_item("/browse") Buy
+		+nav_item("/upload") Sell
 		form.navbar-form.navbar-left
 			form.form-group(action="/search",method="get")
 				+input-simple("text","mysearch", "Search","")
 				button.btn("submit") Search
+		form.navbar-form.navbar-right
+			+a-btn-success("/login") Login
 		ul.nav.navbar-nav.navbar-right
 			+nav_item("/account") Account
-			+nav_item("/account") Watchlist
+			+nav_item("/watchlist","active") Watchlist
 	block content
 		.inside
-			h1 Advanced search page  
-			p This will be the advanced search page
+			h1 Watchlist
+			p This page will display items in the users watchlist
