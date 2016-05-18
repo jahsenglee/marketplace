@@ -10,3 +10,23 @@ block content
 		+a-btn-primary("/browse") Buy
 		+a-btn-success("/upload") Sell
 		+a-btn-warning("/watchlist") Watchlist
+	.featureditems
+		h3 Featured Items
+	ul
+		each item in [1,2,3,4]
+			.outerbox
+				.innertext
+					.itemtitle
+						h4 Macbook pro
+					+btn-xs-success("View")
+				.imagebox
+					img(src="/images/macbook.jpeg")
+				.innertext
+					.auction
+						p $2.50
+					.buynow
+						p Buy Now $3.50
+	.footer
+
+
+
