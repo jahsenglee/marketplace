@@ -19,4 +19,8 @@ block body
 	block content
 		.inside
 			h1 Browsing page
-			p This page will display (random) items we can browse through
+			ul
+				each item in stock
+					li
+						p #{item.name}
+						p #{item.description}
