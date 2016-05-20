@@ -82,6 +82,14 @@ within and will change size to fit and look nice.*/
 	font-weight: bold;
 }
 
+.imaget{
+
+	width: 100%;
+	height: 100%;
+	border: 3px solid
+
+}
+
 
 .footer{
 	background-color:#273d63;

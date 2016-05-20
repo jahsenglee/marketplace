@@ -38,7 +38,8 @@ block body
                     .col-md-4.col-sm-4.col-xs-12
                         p
                     .col-md-4.col-sm-4.col-xs-12
-                        +img-rounded("images/macbook.jpeg","mac")
+                        +img-responsive(item.picture,"mac")
+
         .container
             .jumbotron
                 .search-tabs-wrapper
@@ -52,7 +53,8 @@ block body
                         .tab-pane(id="profile")
                             ul
                                 each val in item.details
-                                    li= val
+                                    .col-md-4.col-sm-4.col-xs-12
+                                    val.
 
 
     .footer

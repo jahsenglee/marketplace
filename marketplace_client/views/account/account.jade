@@ -19,13 +19,13 @@ block body
 			+nav_item("/watchlist") Watchlist
 	block content
 		.headerpad
-
 		.container
 			h1 User Account
 			.jumbotron
 				.row
 					.col-md-4.col-sm-4.col-xs-12
-						+img-circle("images/macbook.jpeg", "Portrait")
+						.imaget
+							+img-responsive(account.profilePic, "Portrait")
 					.col-md-8.col-sm-8.col-xs-12
 						p Welcome! #{account.username}
 				.row
@@ -41,3 +41,4 @@ block body
 				.row
 					p #{account.address}
 
+	.footer
