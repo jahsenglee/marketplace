@@ -18,6 +18,26 @@ block body
 			+nav_item("/account","active") Account
 			+nav_item("/watchlist") Watchlist
 	block content
-		.inside
-			h1 Account
-			p This will be the account page
+		.headerpad
+
+		.container
+			h1 User Account
+			.jumbotron
+				.row
+					.col-md-4.col-sm-4.col-xs-12
+						+img-circle("images/macbook.jpeg", "Portrait")
+					.col-md-8.col-sm-8.col-xs-12
+						p Welcome! #{account.username}
+				.row
+					h2 Contact Details
+				.row
+					p Name: #{account.actualName}
+				.row
+					p Email: #{account.email}
+				.row
+					p Name: #{account.number}
+				.row
+					h2 Address
+				.row
+					p #{account.address}
+

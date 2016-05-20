@@ -54,7 +54,18 @@ router.get('/singleItem', function(req, res) {
 // -------------
 // Account pages
 router.get('/account', function(req, res) {
-  res.render('account/account')
+
+  var tempAccount = {id: 1,
+    username: "Remmington",
+    actualName: "Joan Smourgh",
+    address: "52 Arad Road",
+    email: "dotdot@hotmail.com",
+    number: "027 8888 888",
+    //profile pic
+    watchlist:
+    [1,4,5,6,3]
+  };
+  res.render('account/account', {account: tempAccount})
 });
 
 router.get('/login', function(req, res) {
