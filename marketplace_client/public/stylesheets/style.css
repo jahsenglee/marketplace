@@ -20,6 +20,12 @@ within and will change size to fit and look nice.*/
 	background-color: #EEEEEE;
 }
 
+.headerpad{
+;
+	padding: 20px 0px 20px 0px;
+
+}
+
 .btn{
 	width:85px;
 	margin-left: 15px;
@@ -68,6 +74,14 @@ within and will change size to fit and look nice.*/
 .itemtitle{
 	float:left;
 }
+
+.singleitemprice{
+	color: darkgreen;
+	padding:5px 5px 5px 5px;
+	font-size: 300%;
+	font-weight: bold;
+}
+
 
 .footer{
 	background-color:#273d63;

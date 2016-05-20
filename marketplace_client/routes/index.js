@@ -35,7 +35,20 @@ router.get('/browse', function(req, res) {
 });
 
 router.get('/singleItem', function(req, res) {
-  res.render('search/singleItem?displayItem=1');
+  var tempItem = {id: 1,
+      name: "Macbook Pro 13\"",
+      price: 13.5,
+      description: "This is a macbook.\n Blah blah blah. \n",
+      details:
+    {cpu_speed: "2.4 GHz",
+      cores: "2",
+      memory: "4GB",
+      hard_drive: "500GB",
+      screen_size: "13",
+      cd_dvd: "CD + DVD Writer"
+    }
+  };
+  res.render('search/singleItem', {item: tempItem});//?displayItem=1
 });
 
 // -------------

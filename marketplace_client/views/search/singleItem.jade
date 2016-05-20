@@ -1,11 +1,61 @@
 extends ../../node_modules/jade-bootstrap/_bootstrap
+extends ../layout.jade
+
+
 
 block body
-    +navbar("Marketplace", "dropdown_menu")
-        +nav_item("/", "active") Home
+    +navbar-fixed("Marketplace", "dropdown_menu")
+        +nav_item("/") Home
         +nav_item("/advanced") Advanced Search
         +nav_item("account") Account
-    .container
-        h1 Single item view
+        form.navbar-form.navbar-left
+            form.form-group(action="/search",method="get")
+                +input-simple("text","mysearch", "Search","")
+                button.btn("submit") Search
+        ul.nav.navbar-nav.navbar-right
+            +nav_item("/account") Account
+            +nav_item("/account") Watchlist
+    block content
+        .headerpad
         .container
-            p This will be the page to view an item with index 1
+            .row
+                .col-md-10.col-sm-10.col-xs-12
+                    h1 #{item.name}
+                .col-md-2.col-sm-2.col-xs-12
+                    .singleitemprice
+                        p $#{item.price}
+            .row
+                .col-md-10.col-sm-10.col-xs-12
+                    p
+                .col-md-2.col-sm-2.col-xs-12
+                    a.btn-lg.btn-success Add to Watchlist
+            .row
+                .col-md-10.col-sm-10.col-xs-12
+                    p
+        .container
+            .jumbotron
+                .row
+                    .col-md-4.col-sm-4.col-xs-12
+                        p
+                    .col-md-4.col-sm-4.col-xs-12
+                        +img-rounded("images/macbook.jpeg","mac")
+        .container
+            .jumbotron
+                .search-tabs-wrapper
+                    ul.nav.nav-tabs(role="tablist")
+                        li.active
+                            a(href="#home" role="tab" data-toggle="tab") Description
+                        li
+                            a(href="#profile" role="tab" data-toggle="tab") Details
+                    .tab-content.search-tabs-content
+                        .tab-pane.active(id="home") #{item.description}
+                        .tab-pane(id="profile")
+                            ul
+                                each val in item.details
+                                    li= val
+
+
+
+
+
+
