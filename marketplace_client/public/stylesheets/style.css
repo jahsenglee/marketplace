@@ -90,6 +90,23 @@ within and will change size to fit and look nice.*/
 
 }
 
+.singleItem{
+	height: 400px;
+	width: auto;
+	text-align: center;
+
+	/*margin-left: auto;*/
+	/*margin-right: auto;*/
+}
+
+.singleItemText{
+	padding-top: 20px;
+	padding-left: 10px;
+	font-family: Georgia, Times, 'Times New Roman', serif;
+	font-size: 16px;;
+}
+
+
 
 .footer{
 	background-color:#273d63;

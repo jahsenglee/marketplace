@@ -27,7 +27,7 @@ block body
                             .jumbotron
                                 .row
                                     .col-md-4.col-sm-4.col-xs-12
-                                        +img-responsive(item.picture,"item DP")
+                                        +img-responsive(item.images[0],"item DP")
                                     .col-md-6.col-sm-6.col-xs-12
                                         p #{item.name}
                                     .col-md-2.col-sm-2.col-xs-12
@@ -36,16 +36,16 @@ block body
                                 .row
 
                                     .col-md-2.col-sm-2.col-xs-12
-                                        a.btn-lg.btn-success Purchase
-                                        //+a-btn-success("/singleItem") Purchase
+                                        //a.btn-lg.btn-success Purchase
+                                        +a-btn-success("#") Purchase
                                     .col-md-2.col-sm-2.col-xs-12
                                         //a.btn-lg.btn-success("#/singleItem") View Item
-                                        +a-btn-success("/singleItem") View
+                                        +a-btn-primary("/singleItem") View
 
                                     .col-md-6.col-sm-6.col-xs-12
-                                        p
                                     .col-md-2.col-sm-2.col-xs-12
-                                        a.btn-lg.btn-danger Remove
+                                        //a.btn-lg.btn-danger Remove
+                                        +a-btn-danger("/watchlist") Delete
 
 
     .footer

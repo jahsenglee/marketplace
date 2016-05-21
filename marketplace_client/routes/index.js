@@ -39,7 +39,7 @@ router.get('/singleItem', function(req, res) {
       name: "Macbook Pro 13\"",
       price: 13.5,
       description: "This is a macbook.\n Blah blah blah. \n",
-      picture: "images/macbook.jpeg",
+      images: ["images/macbook.jpeg","images/macbook2.jpg","images/macbook3.jpg"],
       details:
     {cpu_speed: "2.4 GHz",
       cores: "2",
@@ -85,24 +85,22 @@ router.get('/watchlist', function(req, res) {
   var tempItem1 = {
     name: "Macbook Pro 13",
     price: 5000,
-    picture: "images/macbook.jpeg"
+    images: ["images/macbook.jpeg","images/macbook2.jpg","images/macbook3.jpg"],
   };
 
   var tempItem2 = {
     name: "Macbook Pro 14",
     price: 333,
-    picture: "images/macbook.jpeg"
+    images: ["images/macbook3.jpg","images/macbook.jpeg","images/macbook2.jpg","images/macbook.jpeg"],
 
   };
   var tempItem3 = {
     name: "Macbook Pro 16",
     price: 13.5,
-    picture: "images/macbook.jpeg"
+    images: ["images/macbook2.jpg","images/macbook.jpeg","images/macbook3.jpg"],
 
   };
   watchlist = [tempItem1,tempItem2,tempItem3]
-
-
   res.render('account/watchlist', {account: tempAccount, watchlist: watchlist})
 });
 
