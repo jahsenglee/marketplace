@@ -30,6 +30,9 @@ router.get('/browse', function(req, res) {
       //console.log(items[0].stock);
       res.render('browse', {stock: items[0].stock}); // returns all items
     }
+    else {
+      res.render('error', {message: "failed to get items from the database", error: err});
+    }
   });
 });
 
@@ -38,22 +41,10 @@ router.get('/singleItem', function(req, res) {
     if(!err) {
       res.render('search/singleItem', {item: items[0].stock[0]}); // TODO: get correct item specified by id
     }
+    else {
+      res.render('error', {message: "failed to get item id: " + 0, error: err});
+    }
   });
-  // var tempItem = {id: 1,
-  //     name: "Macbook Pro 13\"",
-  //     price: 13.5,
-  //     description: "This is a macbook.\n Blah blah blah. \n",
-  //     images: ["images/macbook.jpeg","images/macbook2.jpg","images/macbook3.jpg"],
-  //     details:
-  //   {cpu_speed: "2.4 GHz",
-  //     cores: "2",
-  //     memory: "4GB",
-  //     hard_drive: "500GB",
-  //     screen_size: "13",
-  //     cd_dvd: "CD + DVD Writer"
-  //   }
-  // };
-  // res.render('search/singleItem', {item: tempItem});//?displayItem=1
 });
 
 // -------------
