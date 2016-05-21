@@ -25,20 +25,42 @@ block body
                     .singleitemprice
                         p $#{item.price}
             .row
-                .col-md-10.col-sm-10.col-xs-12
-                    p
-                .col-md-2.col-sm-2.col-xs-12
-                    a.btn-lg.btn-success Add to Watchlist
+                .col-md-9.col-sm-9.col-xs-12
+                .col-md-1.col-sm-1.col-xs-12
+                    +a-btn-success("/singleItem") Purchase
+                .col-md-1.col-sm-1.col-xs-12
+                    +a-btn-primary("#") Watch
+                    //a.btn-lg.btn-success Add to Watchlist
             .row
                 .col-md-10.col-sm-10.col-xs-12
                     p
         .container
             .jumbotron
-                .row
-                    .col-md-4.col-sm-4.col-xs-12
-                        p
-                    .col-md-4.col-sm-4.col-xs-12
-                        +img-rounded("images/macbook.jpeg","mac")
+                #myCarousel.carousel.slide(data-ride='carousel')
+                    // Indicators
+                    ol.carousel-indicators
+                        each val, index in item.images
+                            //li= index + ': ' + val
+                            if index == 0
+                                li.active(data-target='#myCarousel', data-slide-to='0')
+                            else
+                                li(data-target='#myCarousel', data-slide-to=index)
+                    // Wrapper for slides
+                    .carousel-inner(role='listbox')
+                        each val, index in item.images
+                            if index == 0
+                                .item.active.sin
+                                    img.img-responsive.center-block(src=val, alt='Chania')
+                            else
+                                .item
+                                    img.img-responsive.center-block(src=val, alt='Flower')
+                    // Left and right controls
+                    a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+                        span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+                        span.sr-only Previous
+                    a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+                        span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+                        span.sr-only Next
         .container
             .jumbotron
                 .search-tabs-wrapper
@@ -48,14 +70,14 @@ block body
                         li
                             a(href="#profile" role="tab" data-toggle="tab") Details
                     .tab-content.search-tabs-content
-                        .tab-pane.active(id="home") #{item.description}
-                        .tab-pane(id="profile")
+                        .tab-pane.active.singleItemText(id="home") #{item.description}
+                        .tab-pane.singleItemText(id="profile")
                             ul
                                 each val in item.details
-                                    li= val
+                                    li #{val}
 
 
-
+    .footer
 
 
 
