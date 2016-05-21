@@ -8,6 +8,7 @@ mongoClient.connect("mongodb://localhost:27017/test", {strict: true}, function(e
   if(!err) {
     console.log("connected to mongo");
     mongoItems = db.collection('items');
+    mongoUsers = db.collection('users');
 
   } else {
     console.log("failed to connect to mongo");
@@ -51,17 +52,14 @@ router.get('/singleItem', function(req, res) {
 // Account pages
 router.get('/account', function(req, res) {
 
-  var tempAccount = {id: 1,
-    username: "Remmington",
-    actualName: "Joan Smourgh",
-    address: "52 Arad Road",
-    email: "dotdot@hotmail.com",
-    number: "027 8888 888",
-    profilePic: "images/donald.jpg",
-    watchlist:
-    [1,4,5,6,3]
-  };
-  res.render('account/account', {account: tempAccount})
+  mongoUsers.find().toArray(function(err, users) {
+    if(!err) {
+      res.render('account/account', {account: users[0].user[0]});
+    }
+    else {
+      res.render('error', {message: "failed to get user id: " + 0, error: err});
+    }
+  });
 });
 
 router.get('/watchlist', function(req, res) {
