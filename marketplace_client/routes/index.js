@@ -34,21 +34,26 @@ router.get('/browse', function(req, res) {
 });
 
 router.get('/singleItem', function(req, res) {
-  var tempItem = {id: 1,
-      name: "Macbook Pro 13\"",
-      price: 13.5,
-      description: "This is a macbook.\n Blah blah blah. \n",
-      images: ["images/macbook.jpeg","images/macbook2.jpg","images/macbook3.jpg"],
-      details:
-    {cpu_speed: "2.4 GHz",
-      cores: "2",
-      memory: "4GB",
-      hard_drive: "500GB",
-      screen_size: "13",
-      cd_dvd: "CD + DVD Writer"
+  mongoItems.find().toArray(function(err, items) {
+    if(!err) {
+      res.render('search/singleItem', {item: items[0].stock[0]}); // TODO: get correct item specified by id
     }
-  };
-  res.render('search/singleItem', {item: tempItem});//?displayItem=1
+  });
+  // var tempItem = {id: 1,
+  //     name: "Macbook Pro 13\"",
+  //     price: 13.5,
+  //     description: "This is a macbook.\n Blah blah blah. \n",
+  //     images: ["images/macbook.jpeg","images/macbook2.jpg","images/macbook3.jpg"],
+  //     details:
+  //   {cpu_speed: "2.4 GHz",
+  //     cores: "2",
+  //     memory: "4GB",
+  //     hard_drive: "500GB",
+  //     screen_size: "13",
+  //     cd_dvd: "CD + DVD Writer"
+  //   }
+  // };
+  // res.render('search/singleItem', {item: tempItem});//?displayItem=1
 });
 
 // -------------
