@@ -20,4 +20,8 @@ block body
 	block content
 		.inside
 			h1 Login 
-			p This will be the login page
+				div
+					input(type="text", id="Username", placeholder="Username", class="form-control" style="width:15%; display:inline;")
+				div
+					input(type="text", id="Password", placeholder="Password", class="form-control" style="width:15%; display:inline;")		
+			button.btn("submit") Login
