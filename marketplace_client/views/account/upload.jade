@@ -19,5 +19,16 @@ block body
 			+nav_item("/watchlist") Watchlist
 	block content
 		.inside
-			h1 Upload item
-			p This will be the upload item page
+			h1 Upload an item
+				div
+					input(type="text", id="Name", placeholder="Name", class="form-control" style="width:15%; display:inline;")
+					br
+					input(type="text", id="Price", placeholder="Price", class="form-control" style="width:15%; display:inline;")
+					br
+					input(type="text", id="Description", placeholder="Description", class="form-control" style="width:15%; display:inline;")
+					br
+					input(type="text", id="Image", placeholder="Image", class="form-control" style="width:15%; display:inline;")
+					br
+					input(type="text", id="details", placeholder="Details", class="form-control" style="width:15%; display:inline;")
+					br
+					button.btn("submit") Upload
