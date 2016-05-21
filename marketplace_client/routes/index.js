@@ -3,10 +3,6 @@ var router = express.Router();
 var mongoClient = require('mongodb').MongoClient;
 var mongoItems;
 
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
-
 // Connect to the db
 mongoClient.connect("mongodb://localhost:27017/test", {strict: true}, function(err, db) {
   if(!err) {
@@ -18,6 +14,9 @@ mongoClient.connect("mongodb://localhost:27017/test", {strict: true}, function(e
   }
 })
 
+router.get('/', function(req, res, next) {
+  res.render('index');
+});
 
 // ------------
 // Search pages
