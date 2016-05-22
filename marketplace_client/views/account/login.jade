@@ -10,10 +10,14 @@ block body
 			var log = false;
 			if(log === false){
 				console.log('loggedIn');
-				log = true;			
+				log = true;		
+				document.getElementById('divId').style.display = 'none';				
+				document.getElementById('divIdlogout').style.display = '';
 			}else{
 				console.log('Incorrect');
 				log = false;
+				document.getElementById('divId').style.display = '';
+				document.getElementById('divIdlogout').style.display = 'none';
 			}
 			console.log(log)
 		}
@@ -28,8 +32,10 @@ block body
 				+input-simple("text","mysearch", "Search","")
 				button.btn("submit") Search
 		form.navbar-form.navbar-right
-			div(render=")
+			div(id="divId")
 				+a-btn-success("/login") Login
+			div(id="divIdlogout" style="display:none;")
+				+a-btn-success(onclick="loggedIn('','')" href="/login") Logout
 		ul.nav.navbar-nav.navbar-right
 			+nav_item("/account") Account
 			+nav_item("/watchlist") Watchlist
