@@ -16,6 +16,18 @@ mongoClient.connect("mongodb://localhost:27017/test", {strict: true}, function(e
 })
 
 router.get('/', function(req, res, next) {
+      mongoItems.find().toArray(function(err, items) {
+
+        for (var j = 0; j < items[0].stock.length; j++) {
+          var item = items[0].stock[j]; // TODO: get correct item specified by id
+          if (item.name.indexOf(req.query.mysearch)>=0) {
+            if (item.images == undefined){
+              item.images = ["images/noimages.jpg"];
+            }
+            res.render('search/singleItem', {item: items[0].stock[j]});
+          }
+        }
+    });
   res.render('index');
 });
 
