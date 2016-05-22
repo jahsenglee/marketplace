@@ -3,6 +3,7 @@
 	 "name": "MacBook Air 13\". Stunning condition with Applecare",
 	 "price": 1245.00,
 	 "description": "If you need to Bring You Own Device to school then MacBook Air are brilliant. Light, portable and great battery life - just what you need. The MacBook Air is also de rigeur for sitting in Starbucks\nAPPLECARE until April 2017!! Peace of mind.\nThis MacBook Air is in stunning condition with very light wear and tear. It might be too nice to give to a student!!",
+	 "images": ["images/macbook.jpeg","images/macbook2.jpg","images/macbook3.jpg"],
 	 "details": {
 	   "CPU speed": "1.3 GHz",
 	   "Memory": "4 GB",

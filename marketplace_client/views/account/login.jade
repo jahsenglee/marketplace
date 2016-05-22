@@ -3,7 +3,22 @@ extends ../layout.jade
 append styles
 	link(rel='stylesheet', href='/stylesheets/style.css')
 
+	
 block body
+	script.		
+		function loggedIn(user, pass){
+			var log = false;
+			if(log === false){
+				console.log('loggedIn');
+				log = true;			
+			}else{
+				console.log('Incorrect');
+				log = false;
+			}
+			console.log(log)
+		}
+		
+	
 	+navbar-fixed("Marketplace", "dropdown_menu")
 		+nav_item("/", "active") Home
 		+nav_item("/browse") Buy
@@ -13,15 +28,16 @@ block body
 				+input-simple("text","mysearch", "Search","")
 				button.btn("submit") Search
 		form.navbar-form.navbar-right
-			+a-btn-success("/login") Login
+			div(render=")
+				+a-btn-success("/login") Login
 		ul.nav.navbar-nav.navbar-right
 			+nav_item("/account") Account
 			+nav_item("/watchlist") Watchlist
 	block content
-		.inside
+		.inside		
 			h1 Login 
 				div
 					input(type="text", id="Username", placeholder="Username", class="form-control" style="width:15%; display:inline;")
 				div
 					input(type="text", id="Password", placeholder="Password", class="form-control" style="width:15%; display:inline;")		
-			button.btn("submit") Login
+			button(class="btn" onclick="loggedIn('User','Pass')") Login
