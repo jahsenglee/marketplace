@@ -84,6 +84,11 @@ within and will change size to fit and look nice.*/
 
 .imageProfile{
 	border: 3px solid #787878
+}
+
+.watchImagePad{
+
+	padding-left: 35px;
 
 }
 
@@ -116,6 +121,7 @@ within and will change size to fit and look nice.*/
 	font-weight: bold !important;;
 
 }
+
 
 
 

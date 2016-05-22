@@ -62,6 +62,7 @@ router.get('/account', function(req, res) {
   });
 });
 
+
 router.get('/watchlist', function(req, res) {
   var tempAccount = {id: 1,
     username: "Remmington",
@@ -74,27 +75,51 @@ router.get('/watchlist', function(req, res) {
     watchlist:
         [1,4,5,6,3]
   };
+  var watchToDisplay = [];
 
-  var tempItem1 = {
-    name: "Macbook Pro 13",
-    price: 5000,
-    images: ["images/macbook.jpeg","images/macbook2.jpg","images/macbook3.jpg"],
-  };
+    mongoItems.find().toArray(function(err, items) {
+      for(var i = 0; i < tempAccount.watchlist.length; i++) {
+        //console.log("I: " + i);
+        for (var j = 0; j < items[0].stock.length; j++) {
+          var item = items[0].stock[j]; // TODO: get correct item specified by id
+          //console.log("ITEM: " + items[0].stock[j].name);
+          if (item.id == tempAccount.watchlist[i]) {
+           // console.log("ADD to WATCH: " + item.id);
+            if (item.images == undefined){
+              item.images = ["images/noimages.jpg"];
+            }
+            watchToDisplay.push(item);
+          }
+        }
+      }
 
-  var tempItem2 = {
-    name: "Macbook Pro 14",
-    price: 333,
-    images: ["images/macbook3.jpg","images/macbook.jpeg","images/macbook2.jpg","images/macbook.jpeg"],
+      console.log("Niggers " + tempAccount);
+      res.render('account/watchlist', {account: tempAccount, watchlist: watchToDisplay});
 
-  };
-  var tempItem3 = {
-    name: "Macbook Pro 16",
-    price: 13.5,
-    images: ["images/macbook2.jpg","images/macbook.jpeg","images/macbook3.jpg"],
+    });
 
-  };
-  watchlist = [tempItem1,tempItem2,tempItem3]
-  res.render('account/watchlist', {account: tempAccount, watchlist: watchlist})
+  console.log("WATCHTODISPLAY: " + watchToDisplay);
+  //res.render('account/watchlist', {account: tempAccount, watchlist: watchToDisplay});
+  //var tempItem1 = {
+  //  name: "Macbook Pro 13",
+  //  price: 5000,
+  //  images: ["images/macbook.jpeg","images/macbook2.jpg","images/macbook3.jpg"],
+  //};
+  //
+  //var tempItem2 = {
+  //  name: "Macbook Pro 14",
+  //  price: 333,
+  //  images: ["images/macbook3.jpg","images/macbook.jpeg","images/macbook2.jpg","images/macbook.jpeg"],
+  //
+  //};
+  //var tempItem3 = {
+  //  name: "Macbook Pro 16",
+  //  price: 13.5,
+  //  images: ["images/macbook2.jpg","images/macbook.jpeg","images/macbook3.jpg"],
+  //
+  //};
+
+
 });
 
 router.get('/login', function(req, res) {

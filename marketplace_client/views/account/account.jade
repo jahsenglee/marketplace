@@ -25,7 +25,7 @@ block body
 				.row
 				.row
 					.col-md-3.col-sm-3.col-xs-12
-						img.imageProfile.img-circle(src='images/donald.jpg', alt='Cinque Terre', width='250', height='250')
+						img.imageProfile.img-circle(src='#{account.profilePic}', alt='Cinque Terre', width='250', height='250')
 					.col-md-1.col-sm-1.col-xs-12
 					.col-md-8.col-sm-8.col-xs-12.accountText
 						p.usernameText Welcome! #{account.username}!
@@ -33,7 +33,7 @@ block body
 						p.userTitleText Contact Details:
 						p Name: #{account.actualName}
 						p Email: #{account.email}
-						p Name: #{account.number}
+						p Number: #{account.number}
 						p.userTitleText Address:
 						p #{account.address}
 
