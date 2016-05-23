@@ -62,8 +62,9 @@ block body
                         .tab-pane.active.singleItemText(id="home") #{item.description}
                         .tab-pane.singleItemText(id="profile")
                             ul
-                                each val in item.details
-                                    li #{val}
+                                if item.details != undefined
+                                    each val in item.details
+                                        li #{val}
 
 
     .footer

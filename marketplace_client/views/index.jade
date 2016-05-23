@@ -18,12 +18,11 @@ block content
 				.innertext
 					.itemtitle
 						h4 #{item.name}
-					form.form-signin(role="button",action="/singleItem", method="get")
-						button.btn.btn-xs.btn-primary(type="submit", name="id", value="#{item.id}") View 
 				.imagebox
 					img(src='#{"images/" + item.images[0]}',alt='ITEM DP', width='250', height='175')
 				.innertext
-					//+btn-xs-success("View")
+					form.form-signin(role="button",action="/singleItem", method="get")
+						button.btn.btn-xs.btn-primary(type="submit", name="id", value="#{item.id}") View 
 					.buynow
 						p Buy Now $#{item.price}
 	.footer
