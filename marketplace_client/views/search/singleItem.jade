@@ -15,10 +15,12 @@ block content
             .row
                 .col-md-9.col-sm-9.col-xs-12
                 .col-md-1.col-sm-1.col-xs-12
-                    form.form-signin(role="button",action="/buy", method="get")
-                        button.btn.btn-large.btn-success(type="submit", name="id" value="#{item.id}") Purchase
+                    .padBot
+                        form.form-signin(role="button",action="/buy", method="get")
+                            button.btn.btn-large.btn-success(type="submit", name="id" value="#{item.id}") Purchase
                 .col-md-1.col-sm-1.col-xs-12
-                    +a-btn-primary("#") Watch
+                    .padBot
+                        +a-btn-primary("#") Watch
             .row
                 .col-md-10.col-sm-10.col-xs-12
         .container

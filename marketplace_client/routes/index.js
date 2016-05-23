@@ -42,18 +42,7 @@ router.get('/advanced', function(req, res) {
   res.render('search/advancedSearch')
 });
 
-//router.get('/browse', function(req, res) {
-//  mongoItems.find().toArray(function(err, items) {
-//    if (!err) {
-//      //console.log(items[0].stock);
-//      res.render('browseO', {stock: items[0].stock}); // returns all items
-//    }
-//    else {
-//      res.render('error', {message: "failed to get items from the database", error: err});
-//    }
-//  });
-//});
-//
+
 router.get('/browse', function(req, res) {
   mongoItems.find().toArray(function(err, items) {
     if (!err) {
@@ -114,19 +103,6 @@ router.get('/confirmedBuy', function(req, res) {
   });
 });
 
-
-/*
-router.get('/singleItem', function(req, res) {
-  mongoItems.find().toArray(function(err, items) {
-    if(!err) {
-      console.log("IMAGES: " + items[0].stock[0].images);
-      res.render('search/singleItem', {item: items[0].stock[0]}); // TODO: get correct item specified by id
-    }
-    else {
-      res.render('error', {message: "failed to get item id: " + 0, error: err});
-    }
-  });
-});*/
 
 router.get('/singleItem', function(req, res) {
   mongoItems.find().toArray(function(err, items) {
