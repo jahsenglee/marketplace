@@ -37,17 +37,31 @@ router.get('/advanced', function(req, res) {
   res.render('search/advancedSearch')
 });
 
+//router.get('/browse', function(req, res) {
+//  mongoItems.find().toArray(function(err, items) {
+//    if (!err) {
+//      //console.log(items[0].stock);
+//      res.render('browseO', {stock: items[0].stock}); // returns all items
+//    }
+//    else {
+//      res.render('error', {message: "failed to get items from the database", error: err});
+//    }
+//  });
+//});
+//
 router.get('/browse', function(req, res) {
   mongoItems.find().toArray(function(err, items) {
     if (!err) {
-      //console.log(items[0].stock);
-      res.render('browse', {stock: items[0].stock}); // returns all items
+      console.log("TEST");
+      res.render('browseO', {items: items[0].stock}); // returns all items
     }
     else {
       res.render('error', {message: "failed to get items from the database", error: err});
     }
   });
 });
+
+
 /*
 router.get('/singleItem', function(req, res) {
   mongoItems.find().toArray(function(err, items) {
