@@ -17,12 +17,12 @@ block content
 			.outerbox
 				.innertext
 					.itemtitle
-						h4 #{item.name}
+						h5 #{item.name}
 				.imagebox
 					img(src='#{"images/" + item.images[0]}',alt='ITEM DP', width='250', height='175')
 				.innertext
-					form.form-signin(role="button",action="/singleItem", method="get")
-						button.btn.btn-xs.btn-primary(type="submit", name="id", value="#{item.id}") View 
+				form.form-signin(role="button",action="/singleItem", method="get")
+					button.btn.btn-xs.btn-primary(type="submit", name="id", value="#{item.id}") View 
 					.buynow
 						p Buy Now $#{item.price}
 	.footer
