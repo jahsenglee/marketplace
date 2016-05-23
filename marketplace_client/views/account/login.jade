@@ -6,20 +6,32 @@ append styles
 	
 block body
 	script.		
-		function loggedIn(user, pass){
-			var log = false;
-			if(log === false){
+		function toggleLogin(user, pass){
+			if(user === 'User' && pass === 'Pass'){
 				console.log('loggedIn');
-				log = true;		
+				localStorage.setItem("log", "true");
 				document.getElementById('divId').style.display = 'none';				
 				document.getElementById('divIdlogout').style.display = '';
 			}else{
 				console.log('Incorrect');
-				log = false;
+				localStorage.setItem("log", "false");
 				document.getElementById('divId').style.display = '';
 				document.getElementById('divIdlogout').style.display = 'none';
 			}
-			console.log(log)
+		}
+		
+		function checkLoggedIn(){
+			if(localStorage.getItem("log") === false){				
+				document.getElementById('divId').style.display = 'none';				
+				document.getElementById('divIdlogout').style.display = '';
+				return true;
+				
+			}else{
+				
+				document.getElementById('divId').style.display = '';
+				document.getElementById('divIdlogout').style.display = 'none';
+				return false;
+			}
 		}
 		
 	
@@ -35,7 +47,7 @@ block body
 			div(id="divId")
 				+a-btn-success("/login") Login
 			div(id="divIdlogout" style="display:none;")
-				+a-btn-success(onclick="loggedIn('','')" href="/login") Logout
+				+a-btn-success(onclick="toggleLogin('','')" href="/login") Logout
 		ul.nav.navbar-nav.navbar-right
 			+nav_item("/account") Account
 			+nav_item("/watchlist") Watchlist
@@ -46,4 +58,4 @@ block body
 					input(type="text", id="Username", placeholder="Username", class="form-control" style="width:15%; display:inline;")
 				div
 					input(type="text", id="Password", placeholder="Password", class="form-control" style="width:15%; display:inline;")		
-			button(class="btn" onclick="loggedIn('User','Pass')") Login
+			button(class="btn" onclick="toggleLogin('User','Pass')") Login

@@ -13,7 +13,10 @@ block body
 				+input-simple("text","mysearch", "Search","")
 				button.btn("submit") Search
 		form.navbar-form.navbar-right
-			+a-btn-success("/login") Login
+			div(id="divId")
+				+a-btn-success("/login") Login
+			div(id="divIdlogout" style="display:none;")
+				+a-btn-success(onclick="toggleLogin('','')" href="/login") Logout
 		ul.nav.navbar-nav.navbar-right
 			+nav_item("/account","active") Account
 			+nav_item("/watchlist") Watchlist
