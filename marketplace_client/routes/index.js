@@ -16,7 +16,19 @@ mongoClient.connect("mongodb://localhost:27017/test", {strict: true}, function(e
 })
 
 router.get('/', function(req, res, next) {
-  res.render('index');
+  //var featuredItems = [];
+  mongoItems.find().toArray(function(err, items) {
+    var featuredItems = [];
+    for(var i=0;i<4;i++){
+      var item = items[0].stock[i];
+      featuredItems.push(item);
+      if (item.images == undefined){
+          item.images = ["images/noimages.jpg"];
+      }
+    }
+    res.render('index', {items: featuredItems});
+  });
+  //res.render('index', {items: featuredItems});
 });
 
 // ------------

@@ -12,11 +12,14 @@ html
 			+nav_item("/browse") Buy
 			+nav_item("/upload") Sell
 			form.navbar-form.navbar-left
-				form.form-group(action="/search",method="get")
-					+input-simple("text","mysearch", "Search","")
-					button.btn("submit") Search
+				form.form-group(action="/",method="get")
+					input.input-block-level(type="text", name="mysearch", placeholder="Search")
+					button.btn.btn-small(type="submit") Submit
 			form.navbar-form.navbar-right
-				+a-btn-success("/login") Login
+				div(id="divId")
+					+a-btn-success("/login") Login
+				div(id="divIdlogout" style="display:none;")
+					+a-btn-success(onclick="toggleLogin('','')" href="/login") Logout
 			ul.nav.navbar-nav.navbar-right
 				+nav_item("/account") Account
 				+nav_item("/watchlist") Watchlist

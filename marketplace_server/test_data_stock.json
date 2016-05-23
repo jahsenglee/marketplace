@@ -17,6 +17,7 @@
 	 "name": "*Gaming PC* i7 6700 250G SSD 16GB GTX970 4G WIN8.1",
 	 "price": 2179.00,
 	 "description": "----- Buy with Confidence -----\nWe have sold over 2000 computers through Trademe, so buy with confidence\nAll Systems are fully tested and running smoothly\nAll Systems are Plug and play.\nComprehensive technical support\nBest After-Sale ServicenAll systems come with 18 Months RTB Warranty\n----- Best Price, Best Service -----\nAll system components are brand new. All drivers and manuals are included. Every system is assembled, tested, and professionally packaged before leaving our warehouse. If you ordered operating system (Windows) it will be installed and configured with all drivers.",
+	 "images": ["gaming-pc.jpg"],
 	 "details": {
 	   "CPU speed": "3.4 GHz",
 	   "Memory": "16 GB",
@@ -29,17 +30,20 @@
 	{"id": 3,
 	 "name": "Molokai Inflatable Stand Up Paddle Board Package",
 	 "price": 799.00,
-	 "description": "Our 10'6\" Molokai Sup is the perfect beach buddy that you can take with you where ever you go. Its lure is down to its versatility and portability. It’s designed to float and glide easily on flat water, and it has just the right amount of curve in the plan shape so it rides smoothly and predictably in surf, no matter what kind of rider you are."
+	 "description": "Our 10'6\" Molokai Sup is the perfect beach buddy that you can take with you where ever you go. Its lure is down to its versatility and portability. It’s designed to float and glide easily on flat water, and it has just the right amount of curve in the plan shape so it rides smoothly and predictably in surf, no matter what kind of rider you are.",
+	 "images": ["inflatable-paddle-board.jpg"]
 	},
 	{"id": 4,
 	 "name": "Andreani High Flow Piston Kit RockShox Charger",
 	 "price": 340.00,
-	 "description": "Andreani High Flow Piston Kit RockShox Charger Pike and Boxxer!\n\n(I have other kits for different forks as well just ask!.)\n\nComes with\n\n* high flow piston\n* 7.5wt oil from Andreani\n* soft tune (shim stack)\n* hard tune (shim stack) "
+	 "description": "Andreani High Flow Piston Kit RockShox Charger Pike and Boxxer!\n\n(I have other kits for different forks as well just ask!.)\n\nComes with\n\n* high flow piston\n* 7.5wt oil from Andreani\n* soft tune (shim stack)\n* hard tune (shim stack) ",
+	 "images": ["andreani-pistion-kit.jpg"]
 	},
 	{"id": 5,
 	 "name": "Mitsubishi Outlander 2006",
 	 "price": 17490,
 	 "description": "Additional Features :\n4WD/4x4\nAir Bag(s)\nAll Electrics\nAlloys\nClimate Control\nEFI\nElectric Mirrors\nElectric Windows\nFog Lights\nRemote Locking\nSpoiler\nTransmission Details: Automatic\nInterior Details: Black\n\n7 Seats, Seat Trim : Cloth, Electric Mirrors (Retractable), Rear Wiper, SMART KEY, CAMCHAIN ENGINE.",
+	 "images": ["mitsubishi-outlander-2006.jpg"],
 	 "details": {
 	   "On Road Costs": "Excluded - additional costs may apply",
 	   "Kilometres": "25300km",
@@ -57,6 +61,7 @@
 	 "name": "Nissan March STOCK SALE SUPER LOW KM NICE CAR 2010",
 	 "price": 8500,
 	 "description": "Additional Features :\nAir Bag(s\nAll Electric\nClimate Contro\nEF\nElectric Mirror\nElectric Window\nRemote Lockin\nTransmission Details: Automatic\nInterior Details: Black Cloth\n5 Seats, Seat Trim : Cloth, 2WD Drive, Face Lift Model, Rear Wiper, 16 Valve, CAMCHAIN ENGINE.",
+	 "images": ["nissan-march-2010.jpg"],
 	 "details": {
 	   "On Road Costs": "Excluded - additional costs may apply",
 	   "Kilometres": "39795km",
@@ -72,6 +77,7 @@
 	 "name": "Nissan Skyline 370GT 28,000KM COUPE CAMERA 2008",
 	 "price": 23888,
 	 "description": "Additional Features :\nClimate Control\nRemote Locking\nReversing Camera\nInterior Details: Black Half Leather Trim\nElectronic Seats, Engine Start Button, Face Lift Model, Keyless Entry, Side camera, Factory immobiliser.",
+	 "images": ["nissan-skyline-380GT-2008.jpg"],
 	 "details": {
 	   "On Road Costs": "Excluded - additional costs may apply",
 	   "Kilometres": "28000km",
@@ -87,6 +93,7 @@
 	 "name": "Holden Commodore Ute SV6 with Canopy VERY ... 2010",
 	 "price": 24995,
 	 "description": "Additional Features :\nAlloys\nClimate Control\nCruise Control\nElectric Mirrors\nElectric Windows\nFog Lights\nReversing Camera\nTransmission Details: Automatic\n\nCar Alarm, Electronic Seats, Multiple Air Bags, Digital Display, Factory immobiliser.",
+	 "images": ["holden-commodore-ute-2010.jpg"],
 	 "details": {
 	   "On Road Costs": "Included",
 	   "Kilometres": "95000km",

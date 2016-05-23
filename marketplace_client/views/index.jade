@@ -13,19 +13,18 @@ block content
 	.featureditems
 		h3 Featured Items
 	ul
-		each item in [1,2,3,4]
+		each item in items
 			.outerbox
 				.innertext
 					.itemtitle
-						h4 Macbook pro
-					+btn-xs-success("View")
+						<a href="/singleItem/#{item.name}"> 
+						h4 #{item.name}
 				.imagebox
-					img(src="/images/macbook.jpeg")
+					img(src='#{item.images[0]}',alt='ITEM DP', width='250', height='175')
 				.innertext
-					.auction
-						p $2.50
+					//+btn-xs-success("View")
 					.buynow
-						p Buy Now $3.50
+						p Buy Now $#{item.price}
 	.footer
 
 
