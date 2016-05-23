@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoClient = require('mongodb').MongoClient;
 var mongoItems;
+var mongoUsers;
 
 //var deletedItems =[];
 
@@ -174,38 +175,27 @@ router.get('/account', function(req, res) {
 
 
 router.get('/watchlist', function(req, res) {
-  var tempAccount = {id: 1,
-    username: "Remmington",
-    actualName: "Joan Smourgh",
-    address: "52 Arad Road",
-    email: "dotdot@hotmail.com",
-    number: "027 8888 888",
-    profilePic: "image/donald.jpg",
-    //profile pic
-    watchlist:
-        [1,4,5,6,3]
-  };
   var watchToDisplay = [];
-
-    mongoItems.find().toArray(function(err, items) {
-      for(var i = 0; i < tempAccount.watchlist.length; i++) {
-
-        for (var j = 0; j < items.length; j++) {
-          var item = items[j]; // TODO: get correct item specified by id
-          if (item.id == tempAccount.watchlist[i]) {
-            if (item.images == undefined){
-              item.images = ["noimages.jpg"];
+  mongoItems.find().toArray(function(err, items) { // get all items
+    if (!err) {
+      mongoUsers.find().toArray(function(err, users) { // get watch list
+        if (!err) {
+          for (var i = 0; i < users[0].watchlist.length; i++) { // only one user
+            for (var j = 0; j < items.length; j++) {
+              if(items[j].id === users[0].watchlist[i]) { // item id matches watchlist 
+                var watchitem = items[j];
+                if (watchitem.images === undefined) {
+                  watchitem.images = ["noimages.jpg"];
+                }
+                watchToDisplay.push(watchitem);
+              }
             }
-            watchToDisplay.push(item);
           }
+          res.render('account/watchlist', {account: users[0], watchlist: watchToDisplay});
         }
-      }
-
-      res.render('account/watchlist', {account: tempAccount, watchlist: watchToDisplay});
-
-    });
-
-
+      });
+    }
+  });
 
 });
 
