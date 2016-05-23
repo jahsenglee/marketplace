@@ -8,19 +8,21 @@ html
 
 	block body
 		script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js")
-					
+			
 		script.
-			$(document).ready(function() {
-				if(localStorage.getItem("log") === false){				
+			$( document ).ready(function() {
+				if(localStorage.getItem("log") === 'false'){		
+					console.log("false");
 					$("#divIdlogout").hide();
-					$("#divId").show();
-					
-				}else{
+					$("#divId").show();					
+				}else if(localStorage.getItem("log") === 'true'){
+					console.log("true");
 					$("#divId").hide();
 					$("#divIdlogout").show();
 				}
 			})
 			
+		script.
 			function toggleLogin(user, pass){
 				if(user === 'User' && pass === 'Pass'){
 					console.log('loggedIn');
@@ -34,6 +36,8 @@ html
 					$("#divId").show();	
 				}
 			}
+			
+		
 	
 		+navbar-fixed("Marketplace", "dropdown_menu")
 			+nav_item("/") Home
