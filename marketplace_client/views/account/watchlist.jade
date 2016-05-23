@@ -38,8 +38,9 @@ block body
                                             p $#{item.price}
                                 .row
                                     .col-md-1.col-sm-1.col-xs-12
-                                        //a.btn-lg.btn-success Purchase
-                                        +a-btn-success("#") Purchase
+                                        form.form-signin(role="button",action="/buy", method="get")
+                                            button.btn.btn-large.btn-success(type="submit", name="id" value="#{item.id}") Purchase
+                                        //+a-btn-success("#") Purchase
                                     .col-md-1.col-sm-1.col-xs-12
                                         //a.btn-lg.btn-success("#/singleItem") View Item
                                         form.form-signin(role="button",action="/singleItem", method="get")

@@ -1,0 +1,55 @@
+extends ../node_modules/jade-bootstrap/_bootstrap
+extends layout.jade
+append styles
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+block body
+    +navbar-fixed("Marketplace", "dropdown_menu")
+        +nav_item("/") Home
+        +nav_item("/browse","active") Buy
+        +nav_item("/upload") Sell
+        form.navbar-form.navbar-left
+            form.form-group(action="/search",method="get")
+                +input-simple("text","mysearch", "Search","")
+                button.btn("submit") Search
+        form.navbar-form.navbar-right
+            div(id="divId")
+                +a-btn-success("/login") Login
+            div(id="divIdlogout" style="display:none;")
+                +a-btn-success(onclick="toggleLogin('','')" href="/login") Logout
+        ul.nav.navbar-nav.navbar-right
+            +nav_item("/account") Account
+            +nav_item("/watchlist") Watchlist
+    block content
+        .headerpad
+        .container
+            h1 Buy
+            .container
+                .jumbotron
+                    .row
+                        .col-md-4.col-sm-4.col-xs-12.watchImagePad
+                            img.imageProfile.imageRounded(src='images/#{item.images[0]}', alt='ITEM DP', width='250', height='200')
+                        .col-md-6.col-sm-6.col-xs-12
+                            p #{item.name}
+                            p ACCOUNT NAME: sup
+                            p ACCOUNT : 2768394768923469768
+                            p $#{item.price} will be deducted from this account
+
+                        .col-md-2.col-sm-2.col-xs-12
+                            .singleitemprice
+                                p $#{item.price}
+                    .row
+                        .col-md-2.col-sm-2.col-xs-12.padTop
+                            //a.btn-lg.btn-success Purchase
+                            form.form-signin(role="button",action="/confirmedBuy", method="get")
+                                //+a-btn-primary(type ="submit") View
+                                button.btn.btn-large.btn-success(type="submit", name="id" value="#{item.id}") Confirm
+                        .col-md-1.col-sm-1.col-xs-12.padTop
+                            //a.btn-lg.btn-success("#/singleItem") View Item
+                            form.form-signin(role="button",action="/singleItem", method="get")
+                                //+a-btn-primary(type ="submit") View
+                                button.btn.btn-large.btn-primary(type="submit", name="id" value="#{item.id}") View
+
+
+
+                .footer

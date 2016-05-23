@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoClient = require('mongodb').MongoClient;
 var mongoItems;
+var deletedItems =[];
 
 // Connect to the db
 mongoClient.connect("mongodb://localhost:27017/test", {strict: true}, function(err, db) {
@@ -53,10 +54,58 @@ router.get('/browse', function(req, res) {
   mongoItems.find().toArray(function(err, items) {
     if (!err) {
       console.log("TEST");
+      //for(var i = 0 ; i < deletedItems.length; i++){
+      //  if(items[0].stock.indexOf(deletedItems[i])){
+      //
+      //  }
+      //}
       res.render('browseO', {items: items[0].stock}); // returns all items
     }
     else {
       res.render('error', {message: "failed to get items from the database", error: err});
+    }
+  });
+});
+
+router.get('/buy', function(req, res) {
+  mongoItems.find().toArray(function(err, items) {
+    if (!err) {
+      console.log("TEST");
+      var id = parseInt(req.query.id)-1;
+
+      /*if (items[0].stock[id] == undefined){
+       items[0].stock[id].images = ["images/noimages.jpg"];
+       }*/
+      var id = parseInt(req.query.id)-1;
+      res.render('buy', {item: items[0].stock[id]}); // returns all items
+    }
+    else {
+      res.render('error', {message: "failed to get items from the database", error: err});
+    }
+  });
+});
+
+router.get('/confirmedBuy', function(req, res) {
+  mongoItems.find().toArray(function(err, items) {
+    if (!err) {
+      console.log("TEST");
+
+      /*if (items[0].stock[id] == undefined){
+       items[0].stock[id].images = ["images/noimages.jpg"];
+       }*/
+      var id = parseInt(req.query.id-1);
+      var boughtItem = items[0].stock[id];
+      deletedItems.push(id);
+      mongoItems.remove({name: boughtItem.name}, function(err, items) {
+        if (err) {
+          console.log("Error removing item from db");
+        } else {
+          res.render('confirmedBuy', {item: boughtItem}); // returns all items
+        }
+      });
+    }
+    else {
+      res.render('error', {message: "failed to remove item from db", error: err});
     }
   });
 });
