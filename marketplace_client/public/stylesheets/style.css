@@ -34,11 +34,11 @@ within and will change size to fit and look nice.*/
 .btn-xs{
 	width:50px;
 	float:left;
-	margin-top: 10px;
+	margin-bottom: 5px;
 }
 
 .featureditems{
-	margin: 0px 6% 0px 6%;
+	margin: 0px 7% 0px 6%;
 	border-color:#EEEEEE;
 	border-bottom: solid;
 	border-width:1px;
@@ -56,6 +56,8 @@ within and will change size to fit and look nice.*/
 
 .buynow{
 	float:right;
+	padding-top:5px;
+	margin-right:5px;
 }
 
 .imagebox{
@@ -64,7 +66,7 @@ within and will change size to fit and look nice.*/
 }
 
 .innertext{
-	padding:5px 5px 5px 5px;
+	margin:0px 5px 5px 5px;
 }
 
 .itemtitle{
