@@ -7,6 +7,36 @@ html
 			link(rel='stylesheet', href='/stylesheets/style.css')
 
 	block body
+		script.		
+		function toggleLogin(user, pass){
+			if(user === 'User' && pass === 'Pass'){
+				console.log('loggedIn');
+				localStorage.setItem("log", "true");
+				document.getElementById('divId').style.display = 'none';				
+				document.getElementById('divIdlogout').style.display = '';
+			}else{
+				console.log('Incorrect');
+				localStorage.setItem("log", "false");
+				document.getElementById('divId').style.display = '';
+				document.getElementById('divIdlogout').style.display = 'none';
+			}
+		}
+		
+		function checkLoggedIn(){
+			if(localStorage.getItem("log") === false){				
+				document.getElementById('divId').style.display = 'none';				
+				document.getElementById('divIdlogout').style.display = '';
+				return true;
+				
+			}else{
+				
+				document.getElementById('divId').style.display = '';
+				document.getElementById('divIdlogout').style.display = 'none';
+				return false;
+			}
+		}
+	
+	
 		+navbar-fixed("Marketplace", "dropdown_menu")
 			+nav_item("/", "active") Home
 			+nav_item("/browse") Buy

@@ -24,15 +24,16 @@ block body
 	block content
 		.inside
 			h1 Upload an item
-				form.center(id='uploadItem', name='Item', action='/uploadItem', method='GET')
-					input(class="form-control" type="text", name="name",placeholder="Name", value=name, style="width:15%; display:inline;")
-					br
-					input(type="text", id="price", placeholder="Price", class="form-control" style="width:15%; display:inline;")
-					br
-					input(type="text", id="description", placeholder="Description", class="form-control" style="width:15%; display:inline;")
-					br
-					input(type="text", id="image", placeholder="Image", class="form-control" style="width:15%; display:inline;")
-					br
-					input(type="text", id="details", placeholder="Details", class="form-control" style="width:15%; display:inline;")
-					br
-					button(class="btn" type"submit") Upload
+				form(id='uploadItem', name='Item', action='/uploadItem', method='GET')
+					div
+						input(type="text", name="name", placeholder="Name", class="form-control", value=name, style="width:15%; display:inline;")
+					div
+						input(type="text", name="price", placeholder="Price", class="form-control", value=name, style="width:15%; display:inline;")
+					div
+						input(type="text", name="description", placeholder="Description", class="form-control", value=name, style="width:15%; display:inline;")
+					div
+						input(type="text", name="image", placeholder="Image", class="form-control", value=name, style="width:15%; display:inline;")
+					div
+						input(type="text", name="details", placeholder="Details", class="form-control", value=name, style="width:15%; display:inline;")
+					div
+						button(class="btn", type"submit", value="Item") Upload

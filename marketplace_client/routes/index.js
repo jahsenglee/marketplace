@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoClient = require('mongodb').MongoClient;
 var mongoItems;
+var url = require('url');
 
 // Connect to the db
 mongoClient.connect("mongodb://localhost:27017/test", {strict: true}, function(err, db) {
@@ -159,10 +160,24 @@ router.get('/watchlist', function(req, res) {
   res.render('watchlist')
 });
 
-//insert
 router.get('/uploadItem', function(req, res) {
   var urlparts = url.parse(req.url, true);
+  var Name = urlparts.query.name;
+  var Price = urlparts.query.price;
+  var Description = urlparts.query.description;
+  var Image = urlparts.query.image;
+  var Details = urlparts.query.details;
   console.log(urlparts);
+  /*
+  db.mongoItems.insert({
+    name: Name,
+    price: Price,
+    description: Description,
+    images: Image
+    details: Details
+  });*/
+  
+  res.render('account/uploadItem')
 });
 
 
