@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
   mongoItems.find().toArray(function(err, items) {
     var featuredItems = [];
     for(var i=0;i<4;i++){
-      var item = items[0].stock[i];
+      var item = items[i];
       featuredItems.push(item);
       if (item.images == undefined){
           item.images = ["images/noimages.jpg"];
@@ -53,7 +53,7 @@ router.get('/browse', function(req, res) {
       //
       //  }
       //}
-      res.render('browse', {items: items[0].stock}); // returns all items
+      res.render('browse', {items: items}); // returns all items
     }
     else {
       res.render('error', {message: "failed to get items from the database", error: err});
@@ -71,7 +71,7 @@ router.get('/buy', function(req, res) {
        items[0].stock[id].images = ["images/noimages.jpg"];
        }*/
       var id = parseInt(req.query.id)-1;
-      res.render('buy', {item: items[0].stock[id]}); // returns all items
+      res.render('buy', {item: items[id]}); // returns all items
     }
     else {
       res.render('error', {message: "failed to get items from the database", error: err});
@@ -88,7 +88,7 @@ router.get('/confirmedBuy', function(req, res) {
        items[0].stock[id].images = ["images/noimages.jpg"];
        }*/
       var id = parseInt(req.query.id-1);
-      var boughtItem = items[0].stock[id];
+      var boughtItem = items[id];
       //deletedItems.push(id);
       mongoItems.remove({name: boughtItem.name}, function(err, items) {
         if (err) {
@@ -124,8 +124,8 @@ router.get('/search', function(req, res, next) {
   if(req.query.mysearch!=undefined&&req.query.mysearch!=""){
     var itemsToShow = [];
     mongoItems.find().toArray(function(err, items) {
-      for(var i=0;i<items[0].stock.length;i++){
-      item = items[0].stock[i];
+      for(var i=0;i<items.length;i++){
+      item = items[i];
       if(item.name.indexOf(req.query.mysearch) > -1){
         //if("Mac"==req.query.mysearch){
         //found a match
@@ -142,15 +142,15 @@ router.get('/singleItem', function(req, res) {
     if(!err) {
       var id = parseInt(req.query.id)-1;
       console.log("ID: " + id);
-      console.log("IMAGES: " + items[0].stock[id]);
+      console.log("IMAGES: " + items[0]);
       /*if (items[0].stock[id] == undefined){
         items[0].stock[id].images = ["images/noimages.jpg"];
       }*/
       var id = parseInt(req.query.id)-1;
       console.log("ID: " + id);
-      console.log("IMAGES: " + items[0].stock[id]);
+      console.log("IMAGES: " + items[0]);
       //console.log("OBJECT: " + items[0]);
-      res.render('search/singleItem', {item: items[0].stock[id]}); // TODO: get correct item specified by id
+      res.render('search/singleItem', {item: items[0]}); // TODO: get correct item specified by id
     }
     else {
       res.render('error', {message: "failed to get item id: " + 0, error: err});
@@ -164,7 +164,7 @@ router.get('/account', function(req, res) {
 
   mongoUsers.find().toArray(function(err, users) {
     if(!err) {
-      res.render('account/account', {account: users[0].user[0]});
+      res.render('account/account', {account: users[0]});
     }
     else {
       res.render('error', {message: "failed to get user id: " + 0, error: err});
@@ -190,8 +190,8 @@ router.get('/watchlist', function(req, res) {
     mongoItems.find().toArray(function(err, items) {
       for(var i = 0; i < tempAccount.watchlist.length; i++) {
 
-        for (var j = 0; j < items[0].stock.length; j++) {
-          var item = items[0].stock[j]; // TODO: get correct item specified by id
+        for (var j = 0; j < items.length; j++) {
+          var item = items[j]; // TODO: get correct item specified by id
           if (item.id == tempAccount.watchlist[i]) {
             if (item.images == undefined){
               item.images = ["noimages.jpg"];
