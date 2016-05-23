@@ -17,10 +17,10 @@ block content
 			.outerbox
 				.innertext
 					.itemtitle
-						<a href="/singleItem/#{item.name}"> 
+						<a href="/singleItem/#{item.name}">
 						h4 #{item.name}
 				.imagebox
-					img(src='#{item.images[0]}',alt='ITEM DP', width='250', height='175')
+					img(src='#{"images/" + item.images[0]}',alt='ITEM DP', width='250', height='175')
 				.innertext
 					//+btn-xs-success("View")
 					.buynow
