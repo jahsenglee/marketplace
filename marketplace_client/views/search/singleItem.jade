@@ -49,10 +49,10 @@ block body
                         each val, index in item.images
                             if index == 0
                                 .item.active.sin
-                                    img.img-responsive.center-block(src=val, alt='Chania')
+                                    img.img-responsive.center-block(src="images/" + val, alt='Chania')
                             else
                                 .item
-                                    img.img-responsive.center-block(src=val, alt='Flower')
+                                    img.img-responsive.center-block(src="images/" + val, alt='Flower')
                     // Left and right controls
                     a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
                         span.glyphicon.glyphicon-chevron-left(aria-hidden='true')

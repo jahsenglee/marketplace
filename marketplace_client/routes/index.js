@@ -67,9 +67,9 @@ router.get('/singleItem', function(req, res) {
       var id = parseInt(req.query.id)-1;
       console.log("ID: " + id);
       console.log("IMAGES: " + items[0].stock[id]);
-      if (items[0].stock[id] == undefined){
+      /*if (items[0].stock[id] == undefined){
         items[0].stock[id].images = ["images/noimages.jpg"];
-      }
+      }*/
       var id = parseInt(req.query.id)-1;
       console.log("ID: " + id);
       console.log("IMAGES: " + items[0].stock[id]);
@@ -118,7 +118,7 @@ router.get('/watchlist', function(req, res) {
           var item = items[0].stock[j]; // TODO: get correct item specified by id
           if (item.id == tempAccount.watchlist[i]) {
             if (item.images == undefined){
-              item.images = ["images/noimages.jpg"];
+              item.images = ["noimages.jpg"];
             }
             watchToDisplay.push(item);
           }
