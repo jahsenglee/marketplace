@@ -99,7 +99,7 @@ router.get('/confirmedBuy', function(req, res) {
        }*/
       var id = parseInt(req.query.id-1);
       var boughtItem = items[0].stock[id];
-      deletedItems.push(id);
+      //deletedItems.push(id);
       mongoItems.remove({name: boughtItem.name}, function(err, items) {
         if (err) {
           console.log("Error removing item from db");
