@@ -14,7 +14,9 @@ html
 				if(localStorage.getItem("log") === 'false'){		
 					console.log("false");
 					$("#divIdlogout").hide();
-					$("#divId").show();					
+					$("#divId").show();		
+					$("#showAcc").hide();
+					$("#showWatch").hide();
 				}else if(localStorage.getItem("log") === 'true'){
 					console.log("true");
 					$("#divId").hide();
@@ -29,11 +31,13 @@ html
 					localStorage.setItem("log", "true");					
 					$("#divId").hide();
 					$("#divIdlogout").show();
+					location.reload();
 				}else{
 					console.log('Incorrect');
 					localStorage.setItem("log", "false");
 					$("#divIdlogout").hide();
 					$("#divId").show();	
+					location.reload();
 				}
 			}
 			
@@ -51,9 +55,9 @@ html
 							input.input-block-level(type="text", name="mysearch", placeholder="Search")
 							button.btn.btn-small(type="submit") Submit
 			ul.nav.navbar-nav.navbar-right
-				li
-					a(href='/account') Account
-				li
+				li(id="showAcc")
+					a(href='/account' class="ul.nav.navbar-nav.navbar-right") Account	
+				li(id="showWatch")
 					a(href='/watchlist') Watchlist
 				li
 					.logoutstyle
