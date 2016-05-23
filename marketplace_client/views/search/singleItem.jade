@@ -8,9 +8,9 @@ block body
         +nav_item("/") Home
         +nav_item("/advanced") Advanced Search
         form.navbar-form.navbar-left
-            form.form-group(action="/",method="get")
-                input.input-block-level(type="text", name="mysearch", placeholder="Search")
-                button.btn.btn-small(type="submit") Submit
+            form.form-group(action="/search",method="get")
+                +input-simple("text","mysearch", "Search","")
+                button.btn("submit") Search
         ul.nav.navbar-nav.navbar-right
             +nav_item("/account") Account
             +nav_item("/watchlist") Watchlist
