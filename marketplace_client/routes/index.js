@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoClient = require('mongodb').MongoClient;
 var mongoItems;
 var mongoUsers;
+var index = 9;
 
 //var deletedItems =[];
 
@@ -184,11 +185,12 @@ router.get('/uploadItem', function(req, res) {
   
   
   mongoItems.insert({
+    id: index,
 	name: Name,
 	price: Price,
 	description: Description,
-	images: Image,
-	details: Details
+	images: [Image],
+	details: [Details]
   },
     function (err, result) {
 		console.log("Inserted 3 documents into the document collection");
@@ -199,6 +201,7 @@ router.get('/uploadItem', function(req, res) {
 			console.log("Item listing failed");
 		}
 	});
+  index++;
   res.render('account/uploadItem');
 });
 
