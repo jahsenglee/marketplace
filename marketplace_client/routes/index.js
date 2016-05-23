@@ -128,7 +128,6 @@ router.get('/search', function(req, res, next) {
       item = items[i];
       var name = item.name.toUpperCase();
       if(name.indexOf(req.query.mysearch.toUpperCase()) > -1){
-        //if("Mac"==req.query.mysearch){
         //found a match
         itemsToShow.push(item);
         res.render('browse', {items: itemsToShow});
