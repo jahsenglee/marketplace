@@ -126,7 +126,8 @@ router.get('/search', function(req, res, next) {
     mongoItems.find().toArray(function(err, items) {
       for(var i=0;i<items.length;i++){
       item = items[i];
-      if(item.name.indexOf(req.query.mysearch) > -1){
+      var name = item.name.toUpperCase();
+      if(name.indexOf(req.query.mysearch.toUpperCase()) > -1){
         //if("Mac"==req.query.mysearch){
         //found a match
         itemsToShow.push(item);
