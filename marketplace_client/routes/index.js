@@ -6,6 +6,7 @@ var mongoItems;
 //var deletedItems =[];
 
 var url = require('url');
+var urlString = 'mongodb://localhost:3000/';
 
 
 // Connect to the db
@@ -184,7 +185,7 @@ router.get('/upload', function(req, res) {
   res.render('account/upload')
 });
 
-router.get('/watchlist', function(req, res) {
+router.post('/watchlist', function(req, res) {
   res.render('watchlist')
 });
 
@@ -196,16 +197,25 @@ router.get('/uploadItem', function(req, res) {
   var Image = urlparts.query.image;
   var Details = urlparts.query.details;
   console.log(urlparts);
-  /*
-  db.mongoItems.insert({
-    name: Name,
-    price: Price,
-    description: Description,
-    images: Image
-    details: Details
-  });*/
   
-  res.render('account/uploadItem')
+  
+  mongoItems.insert({
+	name: Name,
+	price: Price,
+	description: Description,
+	images: Image,
+	details: Details
+  },
+    function (err, result) {
+		console.log("Inserted 3 documents into the document collection");
+
+		if (!err) {
+			console.log("New item added");
+		} else {
+			console.log("Item listing failed");
+		}
+	});
+  res.render('account/uploadItem');
 });
 
 
