@@ -36,11 +36,33 @@ router.get('/browse', function(req, res) {
     }
   });
 });
+/*
+router.get('/singleItem', function(req, res) {
+  mongoItems.find().toArray(function(err, items) {
+    if(!err) {
+      console.log("IMAGES: " + items[0].stock[0].images);
+      res.render('search/singleItem', {item: items[0].stock[0]}); // TODO: get correct item specified by id
+    }
+    else {
+      res.render('error', {message: "failed to get item id: " + 0, error: err});
+    }
+  });
+});*/
 
 router.get('/singleItem', function(req, res) {
   mongoItems.find().toArray(function(err, items) {
     if(!err) {
-      res.render('search/singleItem', {item: items[0].stock[0]}); // TODO: get correct item specified by id
+      var id = parseInt(req.query.id)-1;
+      console.log("ID: " + id);
+      console.log("IMAGES: " + items[0].stock[id]);
+      if (items[0].stock[id] == undefined){
+        items[0].stock[id].images = ["images/noimages.jpg"];
+      }
+      var id = parseInt(req.query.id)-1;
+      console.log("ID: " + id);
+      console.log("IMAGES: " + items[0].stock[id]);
+      //console.log("OBJECT: " + items[0]);
+      res.render('search/singleItem', {item: items[0].stock[id]}); // TODO: get correct item specified by id
     }
     else {
       res.render('error', {message: "failed to get item id: " + 0, error: err});

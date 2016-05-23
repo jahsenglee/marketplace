@@ -34,18 +34,37 @@ block body
                                         .singleitemprice
                                             p $#{item.price}
                                 .row
-
                                     .col-md-1.col-sm-1.col-xs-12
                                         //a.btn-lg.btn-success Purchase
                                         +a-btn-success("#") Purchase
                                     .col-md-1.col-sm-1.col-xs-12
                                         //a.btn-lg.btn-success("#/singleItem") View Item
-                                        +a-btn-primary("/singleItem") View
-
-
+                                        form.form-signin(role="button",action="/singleItem", method="get")
+                                            //+a-btn-primary(type ="submit") View
+                                            button.btn.btn-large.btn-primary(type="submit", name="id" value="#{item.id}") View
                                     .col-md-1.col-sm-1.col-xs-12
                                         //a.btn-lg.btn-danger Remove
                                         +a-btn-danger("/watchlist") Delete
 
-    .footer
+                .footer
+
+                    form.form-signin(action="/login", method="post")
+                        h2.form-signin-heading Please sign in
+                        input.input-block-level(type="text", name="username", placeholder="Email address")
+                        input.input-block-level(type="password", name="password", placeholder="Password")
+                        label.checkbox.
+                            <input type="checkbox" value="remember-me" /> Remember me
+                        button.btn.btn-large.btn-primary(type="submit") Sign in
+
+                    <form role="search" action="/xQuerySearch/query/" method="get" >
+                    <div class="form-group">
+                    <div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-xs-11" id="search">
+                    <input name=searchInput type="text" class="form-control" placeholder="Search">
+                    </div>
+
+                    </div>
+                    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1" id="search">
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                    </div>
+                    </form>
 
