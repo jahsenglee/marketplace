@@ -16,13 +16,13 @@ that changes size with amount of info within. can have search results
 within and will change size to fit and look nice.*/
 .inside{
 	text-align:center;
-	padding: 100px 0px 100px 0px;
+	padding: 30px 0px 100px 0px;
 	background-color: #EEEEEE;
 }
 
 .headerpad{
 ;
-	padding: 20px 0px 20px 0px;
+	padding: 100px 0px 20px 0px;
 
 }
 

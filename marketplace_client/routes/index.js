@@ -63,7 +63,7 @@ router.get('/browse', function(req, res) {
       //
       //  }
       //}
-      res.render('browseO', {items: items[0].stock}); // returns all items
+      res.render('browse', {items: items[0].stock}); // returns all items
     }
     else {
       res.render('error', {message: "failed to get items from the database", error: err});
