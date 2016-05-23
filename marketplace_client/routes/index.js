@@ -130,7 +130,7 @@ router.get('/search', function(req, res, next) {
         //if("Mac"==req.query.mysearch){
         //found a match
         itemsToShow.push(item);
-        res.render('browseO', {items: itemsToShow});
+        res.render('browse', {items: itemsToShow});
       }
     }
     });
