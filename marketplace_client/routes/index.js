@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 var mongoClient = require('mongodb').MongoClient;
 var mongoItems;
-<<<<<<< HEAD
-var deletedItems =[];
-=======
+
+//var deletedItems =[];
+
 var url = require('url');
->>>>>>> 54683015e60c3b5f2cde9a088f821594b6e10600
+
 
 // Connect to the db
 mongoClient.connect("mongodb://localhost:27017/test", {strict: true}, function(err, db) {
