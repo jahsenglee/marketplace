@@ -105,6 +105,38 @@ router.get('/confirmedBuy', function(req, res) {
 });
 
 
+
+/*
+router.get('/singleItem', function(req, res) {
+  mongoItems.find().toArray(function(err, items) {
+    if(!err) {
+      console.log("IMAGES: " + items[0].stock[0].images);
+      res.render('search/singleItem', {item: items[0].stock[0]}); // TODO: get correct item specified by id
+    }
+    else {
+      res.render('error', {message: "failed to get item id: " + 0, error: err});
+    }
+  });
+});*/
+
+router.get('/search', function(req, res, next) {
+  var item;
+  if(req.query.mysearch!=undefined&&req.query.mysearch!=""){
+    var itemsToShow = [];
+    mongoItems.find().toArray(function(err, items) {
+      for(var i=0;i<items[0].stock.length;i++){
+      item = items[0].stock[i];
+      if(item.name.indexOf(req.query.mysearch) > -1){
+        //if("Mac"==req.query.mysearch){
+        //found a match
+        itemsToShow.push(item);
+        res.render('browseO', {items: itemsToShow});
+      }
+    }
+    });
+  }
+});
+
 router.get('/singleItem', function(req, res) {
   mongoItems.find().toArray(function(err, items) {
     if(!err) {

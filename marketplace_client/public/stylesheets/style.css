@@ -1,14 +1,23 @@
 body {
-  //padding: 50px 100px 0px 100px;
   font: 12px "Helvetica", Arial, sans-serif;
 }
 
-.navbar {
+#navbar {
+	padding: 0px 7% 0px 6%;
 	background-color:#273d63;
 }
 
-.navbar .nav li a {
+#navbar .nav li a {
 	color: white;
+}
+
+.logoutstyle{
+	margin-top:7.5px;
+}
+
+.searchbox{
+	margin-top: 7.5px;
+	text-align:center;
 }
 
 /*text within header square thing. cteating the square around 
@@ -21,7 +30,6 @@ within and will change size to fit and look nice.*/
 }
 
 .headerpad{
-;
 	padding: 100px 0px 20px 0px;
 
 }

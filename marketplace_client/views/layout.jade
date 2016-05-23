@@ -37,22 +37,29 @@ html
 				}
 			}
 			
-		
-	
-		+navbar-fixed("Marketplace", "dropdown_menu")
-			+nav_item("/") Home
-			+nav_item("/browse") Buy
-			+nav_item("/upload") Sell
-			form.navbar-form.navbar-left
-				form.form-group(action="/",method="get")
-					input.input-block-level(type="text", name="mysearch", placeholder="Search")
-					button.btn.btn-small(type="submit") Submit
-			form.navbar-form.navbar-right
-				div(id="divId")
-					+a-btn-success("/login") Login
-				div(id="divIdlogout", style="display:none;")
-					button(class="btn" onclick="toggleLogin('','')") Logout
+		#navbar.collapse.navbar-collapse
+			ul.nav.navbar-nav
+				li
+					a(href='/') Home
+				li
+					a(href='/browse') Browse
+				li
+					a(href='/upload') Sell
+				li
+					.searchbox
+						form.form-group(action="/search",method="get")
+							input.input-block-level(type="text", name="mysearch", placeholder="Search")
+							button.btn.btn-small(type="submit") Submit
 			ul.nav.navbar-nav.navbar-right
-				+nav_item("/account") Account
-				+nav_item("/watchlist") Watchlist
+				li
+					a(href='/account') Account
+				li
+					a(href='/watchlist') Watchlist
+				li
+					.logoutstyle
+						div(id="divId")
+							+a-btn-success("/login") Login
+						div(id="divIdlogout", style="display:none;")
+							button(class="btn" onclick="toggleLogin('','')") Logout
+
 		block content
