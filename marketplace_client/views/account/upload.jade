@@ -3,37 +3,20 @@ extends ../layout.jade
 append styles
 	link(rel='stylesheet', href='/stylesheets/style.css')
 
-block body
 
-	+navbar-fixed("Marketplace", "dropdown_menu")
-		+nav_item("/") Home
-		+nav_item("/browse") Buy
-		+nav_item("/upload","active") Sell
-		form.navbar-form.navbar-left
-			form.form-group(action="/search",method="get")
-				+input-simple("text","mysearch", "Search","")
-				button.btn("submit") Search
-		form.navbar-form.navbar-right
-			div(id="divId")
-				+a-btn-success("/login") Login
-			div(id="divIdlogout" style="display:none;")
-				+a-btn-success(onclick="toggleLogin('','')" href="/login") Logout
-		ul.nav.navbar-nav.navbar-right
-			+nav_item("/account") Account
-			+nav_item("/watchlist") Watchlist
-	block content
-		.inside
-			h1 Upload an item
-				form(id='uploadItem', name='Item', action='/uploadItem', method='GET')
-					div
-						input(type="text", name="name", placeholder="Name", class="form-control", value=name, style="width:15%; display:inline;")
-					div
-						input(type="text", name="price", placeholder="Price", class="form-control", value=name, style="width:15%; display:inline;")
-					div
-						input(type="text", name="description", placeholder="Description", class="form-control", value=name, style="width:15%; display:inline;")
-					div
-						input(type="text", name="image", placeholder="Image", class="form-control", value=name, style="width:15%; display:inline;")
-					div
-						input(type="text", name="details", placeholder="Details", class="form-control", value=name, style="width:15%; display:inline;")
-					div
-						button(class="btn", type"submit", value="Item") Upload
+block content
+	.inside
+		h1 Upload an item
+			form(id='uploadItem', name='Item', action='/uploadItem', method='GET')
+				div
+					input(type="text", name="name", placeholder="Name", class="form-control", value=name, style="width:15%; display:inline;")
+				div
+					input(type="text", name="price", placeholder="Price", class="form-control", value=name, style="width:15%; display:inline;")
+				div
+					input(type="text", name="description", placeholder="Description", class="form-control", value=name, style="width:15%; display:inline;")
+				div
+					input(type="text", name="image", placeholder="Image", class="form-control", value=name, style="width:15%; display:inline;")
+				div
+					input(type="text", name="details", placeholder="Details", class="form-control", value=name, style="width:15%; display:inline;")
+				div
+					button(class="btn", type"submit", value="Item") Upload

@@ -7,34 +7,34 @@ html
 			link(rel='stylesheet', href='/stylesheets/style.css')
 
 	block body
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js")
+					
 		script.
+			$(document).ready(function() {
+				if(localStorage.getItem("log") === false){				
+					$("#divIdlogout").hide();
+					$("#divId").show();
+					
+				}else{
+					$("#divId").hide();
+					$("#divIdlogout").show();
+				}
+			})
+			
 			function toggleLogin(user, pass){
 				if(user === 'User' && pass === 'Pass'){
 					console.log('loggedIn');
-					localStorage.setItem("log", "true");
-					document.getElementById('divId').style.display = 'none';				
-					document.getElementById('divIdlogout').style.display = '';
+					localStorage.setItem("log", "true");					
+					$("#divId").hide();
+					$("#divIdlogout").show();
 				}else{
 					console.log('Incorrect');
 					localStorage.setItem("log", "false");
-					document.getElementById('divId').style.display = '';
-					document.getElementById('divIdlogout').style.display = 'none';
+					$("#divIdlogout").hide();
+					$("#divId").show();	
 				}
-			}
-		
-			function checkLoggedIn(){
-				if(localStorage.getItem("log") === false){				
-					document.getElementById('divId').style.display = 'none';				
-					document.getElementById('divIdlogout').style.display = '';
-					return true;
-					
-				}else{
-					
-					document.getElementById('divId').style.display = '';
-					document.getElementById('divIdlogout').style.display = 'none';
-					return false;
-				}
-			}
+			}		
+			
 	
 	
 		+navbar-fixed("Marketplace", "dropdown_menu")
@@ -48,8 +48,8 @@ html
 			form.navbar-form.navbar-right
 				div(id="divId")
 					+a-btn-success("/login") Login
-				div(id="divIdlogout" style="display:none;")
-					+a-btn-success(onclick="toggleLogin('','')" href="/login") Logout
+				div(id="divIdlogout", style="display:none;")
+					button(class="btn" onclick="toggleLogin('','')") Logout
 			ul.nav.navbar-nav.navbar-right
 				+nav_item("/account") Account
 				+nav_item("/watchlist") Watchlist

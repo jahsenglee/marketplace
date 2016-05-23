@@ -2,43 +2,26 @@ extends ../../node_modules/jade-bootstrap/_bootstrap
 extends ../layout.jade
 append styles
 	link(rel='stylesheet', href='/stylesheets/style.css')
-	
-block body
-	+navbar-fixed("Marketplace", "dropdown_menu")
-		+nav_item("/") Home
-		+nav_item("/browse") Buy
-		+nav_item("/upload") Sell
-		form.navbar-form.navbar-left
-			form.form-group(action="/search",method="get")
-				+input-simple("text","mysearch", "Search","")
-				button.btn("submit") Search
-		form.navbar-form.navbar-right
-			div(id="divId")
-				+a-btn-success("/login") Login
-			div(id="divIdlogout" style="display:none;")
-				+a-btn-success(onclick="toggleLogin('','')" href="/login") Logout
-		ul.nav.navbar-nav.navbar-right
-			+nav_item("/account","active") Account
-			+nav_item("/watchlist") Watchlist
-	block content
-		.headerpad
-		.container
-			h1 User Account
-			.jumbotron
-				.row
-				.row
-					.col-md-3.col-sm-3.col-xs-12
-						img.imageProfile.img-circle(src='#{account.profilePic}', alt='Cinque Terre', width='250', height='250')
-					.col-md-1.col-sm-1.col-xs-12
-					.col-md-8.col-sm-8.col-xs-12.accountText
-						p.usernameText Welcome! #{account.username}!
-						p
-						p.userTitleText Contact Details:
-						p Name: #{account.actualName}
-						p Email: #{account.email}
-						p Number: #{account.number}
-						p.userTitleText Address:
-						p #{account.address}
+
+block content
+	.headerpad
+	.container
+		h1 User Account
+		.jumbotron
+			.row
+			.row
+				.col-md-3.col-sm-3.col-xs-12
+					img.imageProfile.img-circle(src='#{account.profilePic}', alt='Cinque Terre', width='250', height='250')
+				.col-md-1.col-sm-1.col-xs-12
+				.col-md-8.col-sm-8.col-xs-12.accountText
+					p.usernameText Welcome! #{account.username}!
+					p
+					p.userTitleText Contact Details:
+					p Name: #{account.actualName}
+					p Email: #{account.email}
+					p Number: #{account.number}
+					p.userTitleText Address:
+					p #{account.address}
 
 
-	.footer
+.footer
