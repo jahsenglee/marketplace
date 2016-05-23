@@ -22,15 +22,17 @@ block body
             +nav_item("/watchlist") Watchlist
     block content
         .headerpad
-        .container
-            h1 Successful Purchase!
             .container
-                .jumbotron
-                    .row
-                        .col-md-4.col-sm-4.col-xs-12.watchImagePad
-                            img.imageProfile.imageRounded(src='images/#{item.images[0]}', alt='ITEM DP', width='250', height='200')
-                        .col-md-8.col-sm-8.col-xs-12
-                            p $#{item.price} has been deducted from this account
-                            p Congratulations on your #{item.name}!
+                h1 Successful Purchase!
+                .container
+                    .jumbotron
+                        .row
+                            .col-md-4.col-sm-4.col-xs-12.watchImagePad
+                                img.imageProfile.imageRounded(src='images/#{item.images[0]}', alt='ITEM DP', width='250', height='200')
+                            .col-md-8.col-sm-8.col-xs-12
+                                p $#{item.price} has been deducted from this account
+                                p Congratulations on your #{item.name}!
 
 
+
+            .footer
