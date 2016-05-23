@@ -16,19 +16,7 @@ mongoClient.connect("mongodb://localhost:27017/test", {strict: true}, function(e
 })
 
 router.get('/', function(req, res, next) {
-  //var featuredItems = [];
-  mongoItems.find().toArray(function(err, items) {
-    var featuredItems = [];
-    for(var i=0;i<4;i++){
-      var item = items[0].stock[i];
-      featuredItems.push(item);
-      if (item.images == undefined){
-          item.images = ["images/noimages.jpg"];
-      }
-    }
-    res.render('index', {items: featuredItems});
-  });
-  //res.render('index', {items: featuredItems});
+  res.render('index');
 });
 
 // ------------
@@ -48,33 +36,11 @@ router.get('/browse', function(req, res) {
     }
   });
 });
-/*
-router.get('/singleItem', function(req, res) {
-  mongoItems.find().toArray(function(err, items) {
-    if(!err) {
-      console.log("IMAGES: " + items[0].stock[0].images);
-      res.render('search/singleItem', {item: items[0].stock[0]}); // TODO: get correct item specified by id
-    }
-    else {
-      res.render('error', {message: "failed to get item id: " + 0, error: err});
-    }
-  });
-});*/
 
 router.get('/singleItem', function(req, res) {
   mongoItems.find().toArray(function(err, items) {
     if(!err) {
-      var id = parseInt(req.query.id)-1;
-      console.log("ID: " + id);
-      console.log("IMAGES: " + items[0].stock[id]);
-      if (items[0].stock[id] == undefined){
-        items[0].stock[id].images = ["images/noimages.jpg"];
-      }
-      var id = parseInt(req.query.id)-1;
-      console.log("ID: " + id);
-      console.log("IMAGES: " + items[0].stock[id]);
-      //console.log("OBJECT: " + items[0]);
-      res.render('search/singleItem', {item: items[0].stock[id]}); // TODO: get correct item specified by id
+      res.render('search/singleItem', {item: items[0].stock[0]}); // TODO: get correct item specified by id
     }
     else {
       res.render('error', {message: "failed to get item id: " + 0, error: err});
@@ -144,13 +110,6 @@ router.get('/upload', function(req, res) {
 router.get('/watchlist', function(req, res) {
   res.render('watchlist')
 });
-
-//insert
-router.get('/uploadItem', function(req, res) {
-  var urlparts = url.parse(req.url, true);
-  console.log(urlparts);
-});
-
 
 
 

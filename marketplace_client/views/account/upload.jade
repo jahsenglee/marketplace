@@ -4,6 +4,7 @@ append styles
 	link(rel='stylesheet', href='/stylesheets/style.css')
 
 block body
+
 	+navbar-fixed("Marketplace", "dropdown_menu")
 		+nav_item("/") Home
 		+nav_item("/browse") Buy
@@ -23,15 +24,15 @@ block body
 	block content
 		.inside
 			h1 Upload an item
-				div
-					input(type="text", id="Name", placeholder="Name", class="form-control" style="width:15%; display:inline;")
+				form.center(id='uploadItem', name='Item', action='/uploadItem', method='GET')
+					input(class="form-control" type="text", name="name",placeholder="Name", value=name, style="width:15%; display:inline;")
 					br
-					input(type="text", id="Price", placeholder="Price", class="form-control" style="width:15%; display:inline;")
+					input(type="text", id="price", placeholder="Price", class="form-control" style="width:15%; display:inline;")
 					br
-					input(type="text", id="Description", placeholder="Description", class="form-control" style="width:15%; display:inline;")
+					input(type="text", id="description", placeholder="Description", class="form-control" style="width:15%; display:inline;")
 					br
-					input(type="text", id="Image", placeholder="Image", class="form-control" style="width:15%; display:inline;")
+					input(type="text", id="image", placeholder="Image", class="form-control" style="width:15%; display:inline;")
 					br
 					input(type="text", id="details", placeholder="Details", class="form-control" style="width:15%; display:inline;")
 					br
-					button.btn("submit") Upload
+					button(class="btn" type"submit") Upload
