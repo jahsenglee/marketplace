@@ -17,8 +17,9 @@ block content
 			.outerbox
 				.innertext
 					.itemtitle
-						<a href="/singleItem/#{item.name}">
 						h4 #{item.name}
+					form.form-signin(role="button",action="/singleItem", method="get")
+						button.btn.btn-xs.btn-primary(type="submit", name="id", value="#{item.id}") View 
 				.imagebox
 					img(src='#{"images/" + item.images[0]}',alt='ITEM DP', width='250', height='175')
 				.innertext
