@@ -28,9 +28,9 @@ router.get('/', function(req, res, next) {
     for(var i=0;i<4;i++){
       var item = items[i];
       featuredItems.push(item);
-      if (item.images == undefined){
+      /*if (item.images == undefined){
           item.images = ["images/noimages.jpg"];
-      }
+      }*/
     }
     res.render('index', {items: featuredItems});
   });
@@ -62,62 +62,33 @@ router.get('/browse', function(req, res) {
 });
 
 router.get('/buy', function(req, res) {
-  mongoItems.find().toArray(function(err, items) {
-    if (!err) {
-      console.log("TEST");
-      var id = parseInt(req.query.id)-1;
-
-      /*if (items[0].stock[id] == undefined){
-       items[0].stock[id].images = ["images/noimages.jpg"];
-       }*/
-      var id = parseInt(req.query.id)-1;
-      res.render('buy', {item: items[id]}); // returns all items
-    }
-    else {
-      res.render('error', {message: "failed to get items from the database", error: err});
-    }
-  });
-});
-
-router.get('/confirmedBuy', function(req, res) {
-  mongoItems.find().toArray(function(err, items) {
-    if (!err) {
-      console.log("TEST");
-
-      /*if (items[0].stock[id] == undefined){
-       items[0].stock[id].images = ["images/noimages.jpg"];
-       }*/
-      var id = parseInt(req.query.id-1);
-      var boughtItem = items[id];
-      //deletedItems.push(id);
-      mongoItems.remove({name: boughtItem.name}, function(err, items) {
-        if (err) {
-          console.log("Error removing item from db");
-        } else {
-          res.render('confirmedBuy', {item: boughtItem}); // returns all items
-        }
-      });
-    }
-    else {
-      res.render('error', {message: "failed to remove item from db", error: err});
-    }
-  });
-});
 
 
-
-/*
-router.get('/singleItem', function(req, res) {
-  mongoItems.find().toArray(function(err, items) {
+  mongoItems.find({"id":parseInt(req.query.id)}).toArray(function(err, items) {
     if(!err) {
-      console.log("IMAGES: " + items[0].stock[0].images);
-      res.render('search/singleItem', {item: items[0].stock[0]}); // TODO: get correct item specified by id
+      console.log("ITEMSFINAL: " + JSON.stringify(items[0].images));
+      res.render('buy', {item: items[0]}); // TODO: get correct item specified by id
     }
     else {
       res.render('error', {message: "failed to get item id: " + 0, error: err});
     }
   });
-});*/
+});
+
+
+router.get('/confirmedBuy', function(req, res) {
+
+  mongoItems.find({"id":parseInt(req.query.id)}).toArray(function(err, items) {
+    if(!err) {
+      console.log("ITEMSFINAL: " + JSON.stringify(items[0].images));
+      res.render('confirmedBuy', {item: items[0]}); // TODO: get correct item specified by id
+    }
+    else {
+      res.render('error', {message: "failed to get item id: " + 0, error: err});
+    }
+  });
+});
+
 
 router.get('/search', function(req, res, next) {
   var item;
@@ -138,18 +109,9 @@ router.get('/search', function(req, res, next) {
 });
 
 router.get('/singleItem', function(req, res) {
-  mongoItems.find().toArray(function(err, items) {
+  mongoItems.find({"id":parseInt(req.query.id)}).toArray(function(err, items) {
     if(!err) {
-      var id = parseInt(req.query.id)-1;
-      console.log("ID: " + id);
-      console.log("IMAGES: " + items[0]);
-      /*if (items[0].stock[id] == undefined){
-        items[0].stock[id].images = ["images/noimages.jpg"];
-      }*/
-      var id = parseInt(req.query.id)-1;
-      console.log("ID: " + id);
-      console.log("IMAGES: " + items[0]);
-      //console.log("OBJECT: " + items[0]);
+      console.log("ITEMSFINAL: " + JSON.stringify(items[0].images));
       res.render('search/singleItem', {item: items[0]}); // TODO: get correct item specified by id
     }
     else {
