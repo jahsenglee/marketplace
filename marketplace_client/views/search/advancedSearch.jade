@@ -3,17 +3,6 @@ extends ../layout.jade
 append styles
 	link(rel='stylesheet', href='/stylesheets/style.css')
 block body
-	+navbar-fixed("Marketplace", "dropdown_menu")
-		+nav_item("/") Browse
-		+nav_item("/advanced","active") Buy
-		+nav_item("/account") Sell
-		form.navbar-form.navbar-left
-			form.form-group(action="/search",method="get")
-				+input-simple("text","mysearch", "Search","")
-				button.btn("submit") Search
-		ul.nav.navbar-nav.navbar-right
-			+nav_item("/account") Account
-			+nav_item("/account") Watchlist
 	block content
 		.inside
 			h1 Advanced search page  

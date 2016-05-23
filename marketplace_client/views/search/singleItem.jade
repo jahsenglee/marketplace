@@ -4,16 +4,6 @@ extends ../layout.jade
 
 
 block body
-    +navbar-fixed("Marketplace", "dropdown_menu")
-        +nav_item("/") Home
-        +nav_item("/advanced") Advanced Search
-        form.navbar-form.navbar-left
-            form.form-group(action="/search",method="get")
-                +input-simple("text","mysearch", "Search","")
-                button.btn("submit") Search
-        ul.nav.navbar-nav.navbar-right
-            +nav_item("/account") Account
-            +nav_item("/watchlist") Watchlist
     block content
         .headerpad
         .container
